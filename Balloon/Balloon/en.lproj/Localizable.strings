@@ -1,0 +1,37 @@
+/* 
+  Localizable.strings
+  Balloon
+
+  Created by Юлия Гудошникова on 17.11.2023.
+  
+*/
+
+"choose_language" = "Choose language:";
+"english" = "English";
+"russian" = "Russian";
+"continue" = "Continue";
+"welcome" = "Welcome back!";
+"forgot_password" = "Forgot password?";
+"sign in" = "Login";
+"Don't have an account?" = "Don't have an account?";
+"Sign up" = "Sign up";
+"or" = "or";
+"Email" = "Email";
+"Password" = "Password";
+"invalidloginpassword" = "Invalid email or password";
+"started" = "Let's get started!";
+"Confirm password" = "Confirm your password";
+"User name" = "Name";
+"invalidconfirmpassword" = "Passwords don't match";
+"Recover Password" = "Recover password";
+"Success" = "Success";
+"Not success" = "Not success";
+"Something went wrong. Try again." = "Something went wrong. Try again.";
+"Password reset email has been sent to" = "Password reset email has been sent to ";
+"Back" = "Back";
+"Hi" = "Hi";
+"my name is Balloon and I will become your personal diabetic assistant" = "my name is Balloon and I will become your personal diabetic assistant";
+"Answer a couple of questions before I can help you" = "Answer a couple of questions before I can help you";
+"Let's go" = "Let's go";
+"The password length must be greater than 6" = "The password length must be greater than 6";
+"What type of diabetes do you have?" ="What type of diabetes do you have?";

@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  Balloon
+
+  Created by Юлия Гудошникова on 17.11.2023.
+  
+*/
+"choose_language" = "Выберите язык:";
+"english" = "Английский";
+"russian" = "Русский";
+"continue" = "Продолжить";
+"welcome" = "С возвращением!";
+"forgot_password" = "Забыли пароль?";
+"sign in" = "Войти";
+"Don't have an account?" = "Нет аккаунта?";
+"Sign up" = "Зарегистрироваться";
+"or" = "или";
+"Email" = "Почта";
+"Password" = "Пароль";
+"invalidloginpassword" = "Неверная почта или пароль";
+"started" = "Давай знакомиться!";
+"Confirm password" = "Подтвердите пароль";
+"User name" = "Имя";
+"invalidconfirmpassword" = "Пароли не совпадают";
+"Recover Password" = "Восстановить пароль";
+"Success" = "Успешно";
+"Not success" = "Не успешно";
+"Something went wrong. Try again." = "Что-то пошло не так, попробуйте еще раз";
+"Password reset email has been sent to" = "Электронное письмо для сброса пароля было отправлено по адресу ";
+"Back" = "Назад";
+"Hi" = "Привет";
+"my name is Balloon and I will become your personal diabetic assistant" = "меня зовут Balloon, и я стану твоим личным диабетическим помощником";
+"Answer a couple of questions before I can help you" = "Ответь на пару вопросов, прежде чем я смогу тебе помочь";
+"Let's go" = "Начнём";
+"The password length must be greater than 6" = "Длина пароля должна быть больше 6";
+"What type of diabetes do you have?" = "Какой у тебя тип диабета?";
