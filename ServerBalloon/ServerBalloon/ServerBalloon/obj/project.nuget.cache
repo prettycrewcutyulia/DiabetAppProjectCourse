@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ir7Vn+hDP4ILE8vI3dd4PEyMO950CT5o2tKXwYfridiAEloZD18xDuLnOKbQsPYSCahNjCJjoZZ/laY3zvhFwg==",
+  "dgSpecHash": "mCmx2grU2oPPUSIysmfIkIsvJcVFHN05wwLZz6XmcMqshCqIyU96Bq5mHNA3k/hS2tQ9Bz+LV+xsvmzcsWYpNA==",
   "success": true,
-  "projectFilePath": "/Users/prettycrewcut/Documents/GitHub/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
+  "projectFilePath": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
   "expectedPackageFiles": [
     "/Users/prettycrewcut/.nuget/packages/firebase.auth.rest/1.2.0/firebase.auth.rest.1.2.0.nupkg.sha512",
     "/Users/prettycrewcut/.nuget/packages/firebaseadmin/2.4.0/firebaseadmin.2.4.0.nupkg.sha512",

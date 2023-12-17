@@ -1,7 +1,3 @@
-
-
-using Firebase.Auth;
-using Firebase.Auth.Providers;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 
