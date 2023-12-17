@@ -25,15 +25,10 @@ public class AuthController : ControllerBase
         });
     }
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterAsync(string email, string password)
+    public async Task<IActionResult> RegisterAsync(UserRecordArgs args)
     {
         try
         {
-            UserRecordArgs args = new UserRecordArgs()
-            {
-                Email = email,
-                Password = password,
-            };
 
             var userRecord = await _auth.CreateUserAsync(args);
 
@@ -46,12 +41,11 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync(string email, string password)
+    public async Task<IActionResult> LoginAsync(UserRecordArgs args)
     {
         try
         {
-
-            var user = await _provider.SignInWithEmailAndPasswordAsync(email, password);
+            var user = await _provider.SignInWithEmailAndPasswordAsync(args.Email, args.Password);
             
             return Ok(user.User.Uid);
         }
@@ -62,16 +56,21 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("reset-password")]
-    public async Task<IActionResult> ResetPasswordAsync(string email)
+    public async Task<IActionResult> ResetPasswordAsync(ResetPassword email)
     {
         try
         {
-            await _provider.ResetEmailPasswordAsync(email);
-            return Ok($"Password reset email sent to {email}");
+            await _provider.ResetEmailPasswordAsync(email.Email);
+            return Ok($"Password reset email sent to {email.Email}");
         }
         catch (Exception ex)
         {
             return BadRequest($"Password reset failed: {ex.Message}");
         }
     }
+}
+
+public class ResetPassword
+{
+    public string Email { get; set; }
 }

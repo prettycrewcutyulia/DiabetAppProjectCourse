@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ServerBalloon;
 
-[Microsoft.AspNetCore.Components.Route("api/db")]
+[Route("api/db")]
 [ApiController]
 public class FirestoreController:ControllerBase
 {
@@ -16,6 +16,7 @@ public class FirestoreController:ControllerBase
     [HttpPost("addUser")]
     public async Task<IActionResult> AddUser(UserDb user)
     {
+        user.BirthDate = user.BirthDate.ToUniversalTime();
         CollectionReference collectionReference = _firestoreDb.Collection("users");
         try
         {
@@ -24,6 +25,10 @@ public class FirestoreController:ControllerBase
         }
         catch (Exception ex)
         {
+            if (string.IsNullOrEmpty(user.Id))
+            {
+                return BadRequest("User Id is empty or null.");
+            }
             return BadRequest($"AddUser failed: {ex.Message}");
         }
     }
