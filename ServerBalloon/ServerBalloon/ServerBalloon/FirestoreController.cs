@@ -36,6 +36,7 @@ public class FirestoreController:ControllerBase
     [HttpPut("updateUser/{userId}")]
     public async Task<IActionResult> UpdateUser(string userId, UserDb updatedUserData)
     {
+        updatedUserData.BirthDate = updatedUserData.BirthDate.ToUniversalTime();
         try
         {
             DocumentReference docRef = _firestoreDb.Collection("users").Document(userId);
