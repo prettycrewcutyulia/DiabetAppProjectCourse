@@ -21,13 +21,17 @@ class ChooseGeneralInfoViewModel: ObservableObject {
     
     func createAccount() {
         var user: UserGeneralInfo = UserGeneralInfo()
-        user.id = authService.currentUser!.uid
-        user.Name = UserDefaults.standard.string(forKey: "Name") ?? ""
-        user.TypeDiabet = UserDefaults.standard.string(forKey: "TypeDiabet") ?? "Type 1"
-        user.BirthDate = (UserDefaults.standard.object(forKey: "BirthDate") as? Date)!
-        user.Male = sex
-        user.Height = height
-        user.Weight = weight
+        
+        user.id =  UserDefaults.standard.string(forKey: "idUser")!
+        user.name = UserDefaults.standard.string(forKey: "Name") ?? ""
+        user.typeDiabet = UserDefaults.standard.string(forKey: "TypeDiabet") ?? "Type 1"
+        user.birthDate = (UserDefaults.standard.object(forKey: "BirthDate") as? Date)!
+        user.male = sex
+        user.height = height
+        user.weight = weight
+        UserDefaults.standard.set(sex, forKey: "sex")
+        UserDefaults.standard.set(height, forKey: "height")
+        UserDefaults.standard.set(weight, forKey: "weight")
         
         dataBaseService.addUser(user: user) {[weak self] error in
             if let error = error {

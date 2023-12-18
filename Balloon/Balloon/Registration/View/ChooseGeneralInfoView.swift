@@ -15,24 +15,24 @@ struct ChooseGeneralInfoView: View {
                 TopImageWithText(Spacing: 6, Image: "calm", Text: "And a few more questions...".localized).frame(maxHeight: 250)
                 List {
                     Picker(selection: $viewModel.sex, content: {
-                        Text("Male").tag("male").font(Font.title)
-                        Text("Female").tag("female")
+                        Text("Male".localized).tag("male").font(Font.title)
+                        Text("Female".localized).tag("female")
                     }, label: {Text("")}).pickerStyle(.palette).listRowSeparator(.hidden).padding(.vertical)
                     Picker(selection: $viewModel.height, label:
-                                    Text("Height")
+                            Text("Height".localized)
                                 ) {
                                     ForEach(30..<250) { value in
-                                        Text("\(value) cm").tag(value)
+                                        Text("\(value) " + "cm".localized).tag(value)
                                     }
                                 }.onAppear {
                                     UISegmentedControl.appearance().setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 18)], for: .normal)
                                 }.padding().overlay(RoundedRectangle(cornerRadius: 10.0)
                                     .strokeBorder(Color.gray, style: StrokeStyle(lineWidth: 1.0)))
                     Picker(selection: $viewModel.weight, label:
-                                    Text("Weight")
+                            Text("Weight".localized)
                                 ) {
                                     ForEach(5..<250) { value in
-                                        Text("\(value) kg").tag(value)
+                                        Text("\(value) "+"kg".localized).tag(value)
                                     }
                     }.padding().overlay(RoundedRectangle(cornerRadius: 10.0)
                         .strokeBorder(Color.gray, style: StrokeStyle(lineWidth: 1.0))).listRowSeparator(.hidden)

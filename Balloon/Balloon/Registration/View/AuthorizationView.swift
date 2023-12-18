@@ -7,8 +7,6 @@
 
 import Foundation
 import SwiftUI
-import FirebaseAuth
-import FirebaseCore
 
 struct AuthorizationView: View {
     
@@ -22,7 +20,7 @@ struct AuthorizationView: View {
         VStack(spacing: 30, content: {
             TopImageWithText(Spacing: 6, Image: "balloon", Text: "welcome".localized)
             VStack(spacing: 15, content: {
-                EmailPasswordInputView(user: $viewModel.user, pass:  $viewModel.pass, isPasswordVisible: $isPasswordVisible, screenSize: screenSize)
+                EmailPasswordInputView(user: $viewModel.email, pass:  $viewModel.pass, isPasswordVisible: $isPasswordVisible, screenSize: screenSize)
                 VStack(content: {
                     NavigationLink {
                         ForgotPasswordView()
@@ -34,13 +32,10 @@ struct AuthorizationView: View {
                 })
             })
             
-            FullScreenCoverButton(isPresented: $viewModel.isContinue, destination: HelloView(), label: Text("sign in".localized), action: {viewModel.signIn()})
+            FullScreenCoverButton(isPresented: $viewModel.isContinue, destination: HomeTabBarView(), label: Text("sign in".localized), action: {viewModel.signIn()}) .alert(isPresented: $viewModel.invalidGetUser) {
+                Alert(title: Text("Error".localized), message: Text(viewModel.errorMessage.localized), dismissButton: .default(Text("OK")))
+                }
             
-            CustomSeparator()
-            HStack(spacing: 25, content: {
-                ImageSugnInButton(action: {}, image: Image("google_logo"))
-                ImageSugnInButton(action: {}, image: Image(systemName: "apple.logo"))
-            })
             HStack(content: {
                 Text("Don't have an account?".localized).font(Font.custom("OpenSans-Light", size: 18)).foregroundStyle(Color.gray)
                 NavigationLink {

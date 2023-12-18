@@ -33,15 +33,15 @@ struct FormNavigationBar: View {
 
             switch viewModel.choosenIndicators {
             case .Blood:
-                CustomCircleSlider(count: $viewModel.diabetNote.Blood, measurement: "mmol/l", koef: 36, needRefresh: $needRefresh).padding().accentColor(needRefresh ? .white : .black)
+                CustomCircleSlider(count: $viewModel.diabetNote.Blood, measurement: "mmol/l".localized, koef: 36, needRefresh: $needRefresh).padding().accentColor(needRefresh ? .white : .black)
             case .XE:
-                CustomCircleSlider(count: $viewModel.diabetNote.XE, measurement: "bu", koef: 25, needRefresh: $needRefresh).padding()
+                CustomCircleSlider(count: $viewModel.diabetNote.XE, measurement: "bu".localized, koef: 25, needRefresh: $needRefresh).padding()
                 
             case .ShortInsulin:
-                CustomCircleSlider(count: $viewModel.diabetNote.ShortInsulin, measurement: "units", koef: 30, needRefresh: $needRefresh).padding()
+                CustomCircleSlider(count: $viewModel.diabetNote.ShortInsulin, measurement: "units".localized, koef: 30, needRefresh: $needRefresh).padding()
                 
             case .LongInsulin:
-                CustomCircleSlider(count: $viewModel.diabetNote.LongInsulin, measurement: "units", koef: 100, needRefresh: $needRefresh).padding()
+                CustomCircleSlider(count: $viewModel.diabetNote.LongInsulin, measurement: "units".localized, koef: 100, needRefresh: $needRefresh).padding()
                 
             case .Comment:
                 TextEditorComment(comment: $viewModel.diabetNote.Comment)
@@ -58,7 +58,7 @@ struct FormNavigationBar: View {
                 viewModel.isModalPresented = false 
                 needRefresh.toggle()
             }, label: {Text(textButton) .foregroundColor(.white)
-                    .frame(width: UIScreen.main.bounds.width * 0.3)
+                    .frame(width: UIScreen.main.bounds.width * 0.3, height: 30)
                     .background(Color("BaseColor"))
                 .cornerRadius(10)}).buttonStyle(PlainButtonStyle()).padding()
             Picker("DiabetiIndicators", selection: $viewModel.choosenIndicators) {
@@ -81,8 +81,4 @@ struct FormNavigationBar: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    FormNavigationBar(textButton: "Save", actionButton: {})
 }

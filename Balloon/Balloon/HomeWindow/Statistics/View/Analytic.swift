@@ -14,16 +14,16 @@ struct Analytic: View {
 
     var body: some View {
         VStack(spacing:10) {
-            Text("Analytics".localized).font(.title2)
+            Text("Statistics".localized).font(.title2)
             Divider().frame(height: 1).background(Color("BaseColor")).padding(.horizontal)
             ScrollView() {
-                chartForPeriod(period: "Day", data: filterDataForDay())
+                chartForPeriod(period: "Day".localized, data: filterDataForDay())
                     .frame(height: 300)
                     .padding()
-                chartForAverage(period: "Week", data: calculateAverageBloodForDays())
+                chartForAverage(period: "Week".localized, data: calculateAverageBloodForDays())
                     .frame(height: 300)
                     .padding()
-                chartForAverage(period: "Month", data: calculateAverageBloodForWeeks())
+                chartForAverage(period: "Month".localized, data: calculateAverageBloodForWeeks())
                     .frame(height: 300)
                     .padding()
             }
@@ -51,7 +51,7 @@ struct Analytic: View {
             .chartYScale(domain: 0...36)
         }.padding(8)
         .overlay(
-            Text("\(period) Chart - Avg Sugar: \(String(format: "%.1f", averageSugar))")
+            Text("\(period): " + "Avg Sugar:".localized + " \(String(format: "%.1f", averageSugar))")
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding(6)
@@ -165,7 +165,7 @@ struct Analytic: View {
 
     
     func calculateAverageBloodForWeeks() -> [String: Double] {
-        var filteredData = filterDataForMonth()
+        let filteredData = filterDataForMonth()
         var averageBloodPerWeek: [String: Double] = [:]
 
         // Группировка данных по неделям
@@ -226,7 +226,7 @@ struct Analytic: View {
             .chartYScale(domain: 0...36)
         }
         .overlay(
-            Text("\(period) Chart - Avg Sugar: \(String(format: "%.1f", averageSugar))")
+            Text("\(period): " + "Avg Sugar:".localized + " \(String(format: "%.1f", averageSugar))")
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding(6)

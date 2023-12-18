@@ -16,6 +16,8 @@ class RegistrationViewModel: ObservableObject {
     @Published var showInvalidError = false
     @Published var showInvalidLengthPassword = false
     @Published var isContinue: Bool = false
+    @Published var isError: Bool = false
+    @Published var errorMessage: String = ""
     
     private let authService = AuthenticationServiceEmail.shared // ваш сервис авторизации
     
@@ -31,11 +33,17 @@ class RegistrationViewModel: ObservableObject {
         }
         
         authService.signUp(email: email, password: pass) { [weak self] error in
-            if let error = error {
-                print("Ошибка входа: \(error)")
+            if error != nil {
+                DispatchQueue.main.async { // Запуск обновления данных в главном потоке
+                    print("Ошибка входа: \(error!)")
+                    self?.isError = true
+                    self?.errorMessage = error?.localizedDescription.localized ??  "Something went wrong. Try again."
+                }
+                
             } else {
                 self?.showInvalidError = false
                 self?.showInvalidLengthPassword = false
+                
                 UserDefaults.standard.set(self?.userName, forKey: "Name")
                 self?.isContinue = true
             }

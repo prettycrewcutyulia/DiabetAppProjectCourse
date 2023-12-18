@@ -22,7 +22,7 @@ struct HomeTabBarView: View {
                     Image(systemName: "chart.xyaxis.line")
                     Text("Statistics".localized)
                 }.tag(2)
-            Text("Fourth")
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("Settings".localized)

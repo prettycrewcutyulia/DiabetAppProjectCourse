@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-import FirebaseAuth
 
 struct ForgotPasswordView: View {
     @ObservedObject var viewModel = ForgotPasswordViewModel()
     
     var body: some View {
         let screenSize = UIScreen.main.bounds.size
-        VStack(spacing: 30) {
-           TopImageWithText(Spacing: 6, Image: "balloon", Text: "Recover Password".localized)
-                VStack(alignment: .leading, spacing: 20, content: {
+        VStack(spacing: 60) {
+            TopImageWithText(Spacing: 6, Image: "balloon", Text: "Recover Password".localized).frame(height: 400)
+//                VStack(alignment: .leading, spacing: 20, content: {
                     CustomTextField(text: $viewModel.email, placeholder: "Email")
                         .frame(width: screenSize.width * 0.8, height: 24).registrationTextFieldStyle()
-                })
+//                })
             Button(action: {
                 viewModel.resetPassword()
             }) {
@@ -29,6 +28,7 @@ struct ForgotPasswordView: View {
             }.alert(isPresented: $viewModel.showAlert) {
                 Alert(title: Text(viewModel.alertText), message: Text(viewModel.alertMessage), dismissButton: .default(Text("OK")))
             }
+            Spacer()
         }.padding() // Добавляем padding, чтобы фон занимал весь экран
             .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all)).navigationTitle("")
     }

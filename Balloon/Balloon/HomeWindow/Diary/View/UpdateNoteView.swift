@@ -33,7 +33,7 @@ struct UpdateNoteView: View {
             Button("Cancel".localized) {
                 self.isModalPresented.toggle()
             }.foregroundColor(.white)
-                .frame(width: UIScreen.main.bounds.width * 0.3)
+                .frame(width: UIScreen.main.bounds.width * 0.3, height: 30)
                 .background(Color("BaseColor"))
             .cornerRadius(10).padding()
         }

@@ -13,7 +13,6 @@ class ForgotPasswordViewModel: ObservableObject {
     @Published var showAlert = false // Добавлено состояние для отображения Alert
     @Published var alertMessage = ""
     @Published var alertText = ""
-    @Published private var success = false
     
     private let authService = AuthenticationServiceEmail.shared // сервис авторизации
     
@@ -22,9 +21,8 @@ class ForgotPasswordViewModel: ObservableObject {
             authService.resetPassword(email: email) {  [weak self] (error) in
                 if error == nil {
                     self?.showAlert = true
-                    self?.success = true
                     self?.alertText = "Success".localized
-                    self?.alertMessage = "Password reset email has been sent to".localized + "\(String(describing: self?.email))"
+                    self?.alertMessage = "Password reset email has been sent to".localized + "\(String(self!.email))"
                 } else {
                     self?.showAlert = true
                     self?.alertText = "Not success".localized
