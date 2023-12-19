@@ -6,7 +6,7 @@
 //
 
 import CoreData
-
+// Сервис для работы с CoreData
 class CoreDataManager : ObservableObject{
     static let shared = CoreDataManager()
 

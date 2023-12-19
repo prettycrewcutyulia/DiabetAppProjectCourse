@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Сервис для работы с данными пользователя
 class DatabaseService {
     static let shared = DatabaseService()
     

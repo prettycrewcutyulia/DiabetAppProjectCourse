@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+// Сервис Авторизации
 class AuthenticationServiceEmail {
     static let shared = AuthenticationServiceEmail()
     
