@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View для настроек
 struct SettingsView: View {
     
    @ObservedObject var viewModel = SettingsViewModel()
@@ -61,11 +62,5 @@ struct SettingsView: View {
             }
             .navigationBarTitle("Settings".localized)
         }
-    }
-}
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
     }
 }

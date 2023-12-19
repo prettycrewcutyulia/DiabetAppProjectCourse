@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Позволяет отправлять уведомления о переходе на другое окно
 class HomeTabBarViewModel: ObservableObject {
     @Published var selectedView = 1
 }

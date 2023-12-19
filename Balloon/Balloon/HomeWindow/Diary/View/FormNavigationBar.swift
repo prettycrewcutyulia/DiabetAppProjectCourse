@@ -8,6 +8,7 @@
 import SwiftUI
 import UIKit
 
+// Экран для ввода данных
 struct FormNavigationBar: View {
     
     var actionButton: ()->Void
@@ -46,7 +47,7 @@ struct FormNavigationBar: View {
             case .Comment:
                 TextEditorComment(comment: $viewModel.diabetNote.Comment)
                     .font(.body)
-                    .frame(height: UIScreen.main.bounds.width - 150, alignment: .leading)
+                    .frame(height: UIScreen.main.bounds.width - 150, alignment: .leading).background(Color("BackgroundColor"))
                     .overlay(RoundedRectangle(cornerRadius: 10)
                         .stroke(Color("BaseColor"), lineWidth: 1)).padding()
                 

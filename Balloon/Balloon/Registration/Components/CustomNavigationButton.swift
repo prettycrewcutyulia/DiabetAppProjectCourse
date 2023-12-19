@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Кастомный навигатор
 struct CustomNavigationButton<Content: View>: View {
     var destination: Content
     var label: Text

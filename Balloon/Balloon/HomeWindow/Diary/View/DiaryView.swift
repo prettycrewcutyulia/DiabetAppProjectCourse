@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Первый экран Diary, включающий в себя view для ввода и view для истории данных
 struct DiaryView: View {
     @ObservedObject var viewModel = FormNavigationBarViewModel.shared
     @State private var selectedIndex: Int? = nil

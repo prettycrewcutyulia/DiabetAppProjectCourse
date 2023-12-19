@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Кастомная кнопка для открытия полноценного экрана
 struct FullScreenCoverButton<Content: View>: View {
     @Binding var isPresented: Bool
     var destination: Content

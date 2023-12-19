@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// Экран регистрации
 struct RegistrationView: View {
     
     @ObservedObject var viewModel = RegistrationViewModel()
@@ -24,10 +24,6 @@ struct RegistrationView: View {
             .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
     }
     
-}
-
-#Preview {
-    RegistrationView()
 }
 
 struct FormaView: View {

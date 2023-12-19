@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Кастомный таб-бар
 struct HomeTabBarView: View {
     @ObservedObject var viewModel = HomeTabBarViewModel()
     

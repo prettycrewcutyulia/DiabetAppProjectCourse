@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 
+
+// Кнопка для открытия - закрытия пароля
 struct VisibilityToggleButton: View {
     @Binding var isVisible: Bool
     

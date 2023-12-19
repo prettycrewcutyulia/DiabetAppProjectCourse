@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+// Кастомный слайдер для ввода показателей, путем прокручивания по кругу
 struct CustomCircleSlider :View {
     private var widthCircle:CGFloat = 40
     @State var size: CGFloat = UIScreen.main.bounds.width - 150

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Кастомный TextEditor для ввода пользователем данных
 struct TextEditorComment:View {
     enum Field {
         case textEditor

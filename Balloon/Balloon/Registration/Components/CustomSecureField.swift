@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Кастомный SecureField
 struct CustomSecureField: View {
     @Binding var text: String
     var placeholder: String

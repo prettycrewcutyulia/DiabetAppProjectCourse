@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Экран авторизации
 struct AuthorizationView: View {
     
     @ObservedObject var viewModel = AuthorizationViewModel()

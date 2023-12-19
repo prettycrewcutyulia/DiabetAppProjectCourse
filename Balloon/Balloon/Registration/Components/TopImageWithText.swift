@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Переиспользованный компонент картинка + текст
 struct TopImageWithText : View {
     
     var spacing: CGFloat

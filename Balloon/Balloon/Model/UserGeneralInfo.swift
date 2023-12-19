@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+// Модель для сохранения и отправления данных о пользователе
 struct UserGeneralInfo: Identifiable, Codable {
     var id: String = ""
     var name: String = ""

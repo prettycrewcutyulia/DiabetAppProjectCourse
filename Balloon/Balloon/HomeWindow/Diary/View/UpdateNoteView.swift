@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// View для обновления данных
 struct UpdateNoteView: View {
     @Binding var isModalPresented: Bool
     @ObservedObject var viewModel:UpdateNoteViewModel
@@ -37,7 +38,7 @@ struct UpdateNoteView: View {
                 .background(Color("BaseColor"))
             .cornerRadius(10).padding()
         }
-        .background(Color.white)
+        .background(Color("BackgroundColor"))
         .cornerRadius(20)
         .padding()
     }

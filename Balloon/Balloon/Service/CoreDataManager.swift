@@ -51,7 +51,7 @@ class CoreDataManager : ObservableObject{
     func getAllNotes() -> [DiabetNote] {
             let fetchRequest: NSFetchRequest<DiabetNote> = DiabetNote.fetchRequest()
         // Создание дескриптора сортировки по полю date
-           let sortDescriptor = NSSortDescriptor(key: "date", ascending: true) // Установите `ascending: false`, если нужна обратная сортировка
+           let sortDescriptor = NSSortDescriptor(key: "date", ascending: true) 
            
            // Применение дескриптора сортировки к fetchRequest
            fetchRequest.sortDescriptors = [sortDescriptor]

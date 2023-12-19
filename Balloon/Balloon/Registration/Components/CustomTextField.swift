@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Кастомный TextField
 struct CustomTextField: View {
     @Binding var text: String
     var placeholder: String

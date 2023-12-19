@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Экран для ввода остальных данных пользователя
 struct ChooseGeneralInfoView: View {
     @ObservedObject var viewModel: ChooseGeneralInfoViewModel = ChooseGeneralInfoViewModel()
     

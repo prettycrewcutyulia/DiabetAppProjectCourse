@@ -7,6 +7,7 @@
 
 import Foundation
 
+// ViewModel для настроек
 class SettingsViewModel : ObservableObject {
     @Published var sex: String = UserDefaults.standard.string(forKey: "Sex")!
     @Published var height: Int = UserDefaults.standard.integer(forKey: "Height")

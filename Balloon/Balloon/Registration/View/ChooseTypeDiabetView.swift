@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Экран для выбора заболевания
 struct ChooseTypeDiabetView: View {
     @ObservedObject var viewModel = ChooseTypeDiabetViewModel()
     

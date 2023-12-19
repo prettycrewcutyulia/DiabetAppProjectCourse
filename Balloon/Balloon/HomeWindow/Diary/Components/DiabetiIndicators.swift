@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Индикаторы для кастомных sliders для ввода данных записей
 enum DiabetiIndicators: String, CaseIterable, Identifiable {
     case Blood = "Blood"
     case XE = "Bread unit"

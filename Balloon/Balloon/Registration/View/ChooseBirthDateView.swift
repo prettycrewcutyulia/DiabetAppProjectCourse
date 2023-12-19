@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Экран для выбора дня рождения
 struct ChooseBirthDateView: View {
     @ObservedObject var modelView = ChooseBirthDateModelView()
     var body: some View {

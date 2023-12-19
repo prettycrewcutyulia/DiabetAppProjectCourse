@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Экран выбора языка
 struct ChooseLanguageView: View {
     
     @ObservedObject var viewModel = ChooseLanguageViewModel()

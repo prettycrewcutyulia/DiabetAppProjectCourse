@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Приветственный экран
 struct HelloView: View {
     @State private var isChooseTypeDiabetPresented = false
     let userName =  UserDefaults.standard.string(forKey: "Name") ?? "Non"

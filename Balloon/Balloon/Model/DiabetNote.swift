@@ -8,6 +8,7 @@
 import Foundation
 
 
+// Модель записи пользователя
 class DiabetNoteModel: ObservableObject, Identifiable {
     @Published var Date:Date = .now
     @Published var Blood:Double = 0.0

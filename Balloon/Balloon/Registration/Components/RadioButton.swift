@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+// Кастомная кнопка для выбора
 struct RadioButton : View {
     let isSelected: Bool
     let text: String
