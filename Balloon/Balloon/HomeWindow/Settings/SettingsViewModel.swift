@@ -29,7 +29,12 @@ class SettingsViewModel : ObservableObject {
         UserDefaults.standard.set(typeDiabet, forKey: "TypeDiabet")
         UserDefaults.standard.set(birthDate, forKey: "BirthDate")
         UserDefaults.standard.set(name, forKey: "Name")
-        UserDefaults.standard.set(selectedLanguage, forKey: "SelectedLanguage")
+        
+        DispatchQueue.main.async {
+            UserDefaults.standard.set(self.selectedLanguage, forKey: "selectedLanguage")
+            self.selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage")!
+        }
+        
         
         var newUser = UserGeneralInfo()
         newUser.id = UserDefaults.standard.string(forKey: "idUser")!

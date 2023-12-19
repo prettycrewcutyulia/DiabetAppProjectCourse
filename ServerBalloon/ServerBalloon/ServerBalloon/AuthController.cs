@@ -25,14 +25,14 @@ public class AuthController : ControllerBase
         });
     }
     [HttpPost("register")]
-    public async Task<IActionResult> RegisterAsync(UserRecordArgs args)
+    public async Task<IActionResult> RegisterAsync(Login args)
     {
         try
         {
 
-            var userRecord = await _auth.CreateUserAsync(args);
+            var userRecord = await _provider.CreateUserWithEmailAndPasswordAsync(args.Email, args.Password);
 
-            return Ok(userRecord.Uid);
+            return Ok(userRecord.User.Uid);
         }
         catch (Exception ex)
         {
@@ -41,7 +41,7 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> LoginAsync(UserRecordArgs args)
+    public async Task<IActionResult> LoginAsync(Login args)
     {
         try
         {
@@ -73,4 +73,10 @@ public class AuthController : ControllerBase
 public class ResetPassword
 {
     public string Email { get; set; }
+}
+
+public class Login
+{
+    public string Email { get; set; }
+    public string Password { get; set; }
 }

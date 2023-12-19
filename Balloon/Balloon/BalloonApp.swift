@@ -15,7 +15,7 @@ struct BalloonApp: App {
             if UserDefaults.standard.string(forKey:"login") == "yes" {
                 HomeTabBarView()
             } else {
-                AuthorizationView()
+                ChooseLanguageView()
             }
         }
     }
