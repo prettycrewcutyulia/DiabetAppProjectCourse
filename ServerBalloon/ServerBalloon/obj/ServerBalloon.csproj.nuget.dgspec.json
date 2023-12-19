@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj": {}
+    "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon.csproj": {}
   },
   "projects": {
-    "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj": {
+    "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
+        "projectUniqueName": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
         "projectName": "ServerBalloon",
-        "projectPath": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
+        "projectPath": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon.csproj",
         "packagesPath": "/Users/prettycrewcut/.nuget/packages/",
-        "outputPath": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/ServerBalloon/obj/",
+        "outputPath": "/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/prettycrewcut/.nuget/NuGet/NuGet.Config"
