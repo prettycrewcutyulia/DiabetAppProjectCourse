@@ -31,11 +31,12 @@ public class AuthController : ControllerBase
         {
 
             var userRecord = await _provider.CreateUserWithEmailAndPasswordAsync(args.Email, args.Password);
-
+            Console.WriteLine("успешно");
             return Ok(userRecord.User.Uid);
         }
         catch (Exception ex)
         {
+            Console.WriteLine("Не успешно");
             return BadRequest($"Registration failed: {ex.Message}");
         }
     }
@@ -46,11 +47,12 @@ public class AuthController : ControllerBase
         try
         {
             var user = await _provider.SignInWithEmailAndPasswordAsync(args.Email, args.Password);
-            
+            Console.WriteLine("успешно");
             return Ok(user.User.Uid);
         }
         catch (Exception ex)
         {
+            Console.WriteLine("Не успешно");
             return BadRequest($"Login failed: {ex.Message}");
         }
     }

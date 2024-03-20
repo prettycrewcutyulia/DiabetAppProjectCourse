@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480470A62BC33F5C0018A73F /* Export.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480470A52BC33F5C0018A73F /* Export.swift */; };
 		484077D12B26552700F89C8D /* HomeTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484077D02B26552700F89C8D /* HomeTabBarViewModel.swift */; };
 		484077D42B265B5100F89C8D /* FormNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484077D32B265B5000F89C8D /* FormNavigationBar.swift */; };
 		484077D62B27B70E00F89C8D /* FormNavigationBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484077D52B27B70D00F89C8D /* FormNavigationBarViewModel.swift */; };
@@ -61,6 +62,7 @@
 		48CF441C2B07FE2E00EC07CC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 48CF441E2B07FE2E00EC07CC /* Localizable.strings */; };
 		48CF44212B07FF6500EC07CC /* Extension+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CF44202B07FF6500EC07CC /* Extension+String.swift */; };
 		48CF44232B081AC500EC07CC /* AuthorizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48CF44222B081AC500EC07CC /* AuthorizationView.swift */; };
+		48D7BAB42BC57A4D0082AD08 /* PDFKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D7BAB32BC57A4D0082AD08 /* PDFKitView.swift */; };
 		48E139C92B09A02200CD749A /* HelloView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E139C82B09A02200CD749A /* HelloView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		480470A52BC33F5C0018A73F /* Export.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Export.swift; sourceTree = "<group>"; };
 		484077D02B26552700F89C8D /* HomeTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewModel.swift; sourceTree = "<group>"; };
 		484077D32B265B5000F89C8D /* FormNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormNavigationBar.swift; sourceTree = "<group>"; };
 		484077D52B27B70D00F89C8D /* FormNavigationBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormNavigationBarViewModel.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		48CF441F2B07FE2F00EC07CC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		48CF44202B07FF6500EC07CC /* Extension+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+String.swift"; sourceTree = "<group>"; };
 		48CF44222B081AC500EC07CC /* AuthorizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationView.swift; sourceTree = "<group>"; };
+		48D7BAB32BC57A4D0082AD08 /* PDFKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitView.swift; sourceTree = "<group>"; };
 		48E139C82B09A02200CD749A /* HelloView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelloView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,6 +249,7 @@
 				48CED9732B2BFE9300E1003B /* CoreDataManager.swift */,
 				4898005D2B19415300E8C6BE /* AuthenticationServiceEmail.swift */,
 				487281062B22A05F00A386A3 /* DatabaseService.swift */,
+				48D7BAB32BC57A4D0082AD08 /* PDFKitView.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -386,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				48BFDE982B2E7A40004A3099 /* Analytic.swift */,
+				480470A52BC33F5C0018A73F /* Export.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +583,7 @@
 				48B109E52B06C71700839F7B /* BalloonApp.swift in Sources */,
 				48CF44232B081AC500EC07CC /* AuthorizationView.swift in Sources */,
 				48BFDE872B2DF4CE004A3099 /* TextEditorComment.swift in Sources */,
+				48D7BAB42BC57A4D0082AD08 /* PDFKitView.swift in Sources */,
 				48A783CF2B1A950500649E97 /* FullScreenCoverButton.swift in Sources */,
 				487281142B252FFE00A386A3 /* HomeTabBarView.swift in Sources */,
 				48513F792B2FB65F002408A5 /* SettingsView.swift in Sources */,
@@ -599,6 +606,7 @@
 				48CED96F2B2BF4D900E1003B /* DiaryView.swift in Sources */,
 				48A783D62B1A9D8E00649E97 /* ForgotPasswordViewModel.swift in Sources */,
 				48BFDE8E2B2DF6EA004A3099 /* UpdateNoteViewModel.swift in Sources */,
+				480470A62BC33F5C0018A73F /* Export.swift in Sources */,
 				48A783C72B1A8E3900649E97 /* TopImageWithText.swift in Sources */,
 				48CED96D2B2BE2F000E1003B /* DiabetNote.swift in Sources */,
 				4898005E2B19415300E8C6BE /* AuthenticationServiceEmail.swift in Sources */,

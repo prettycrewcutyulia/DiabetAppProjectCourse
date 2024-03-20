@@ -17,13 +17,19 @@ struct CustomCircleSlider :View {
     @State var koef:Double
     @State var format:String = "%.1f"
     @Binding var needRefresh:Bool
+    @State var lowLevel: Double
+    @State var highLevel: Double
+    @State var color: Color
     
-    init(count: Binding<Double>, measurement: String, koef: Double, format:String = "%.1f", needRefresh:Binding<Bool>) {
+    init(count: Binding<Double>, measurement: String, koef: Double, format:String = "%.1f", needRefresh:Binding<Bool>, lowLevel: Double = 0, highLevel: Double = 300) {
         self.measurement = measurement
         self.koef = koef
         self.format = format
         self._count = count
         self._needRefresh = needRefresh
+        self.lowLevel = lowLevel
+        self.highLevel = highLevel == 300 ? koef : highLevel
+        self.color = (count.wrappedValue < lowLevel || count.wrappedValue > (highLevel == 300 ? koef : highLevel)) ? Color.red : Color("BaseColor")
     }
     
     var body: some View {
@@ -33,7 +39,7 @@ struct CustomCircleSlider :View {
             // progress
             Circle()
                 .trim(from: 0, to: progress)
-                .stroke(Color("BaseColor"), style: StrokeStyle(lineWidth: widthCircle, lineCap: .butt, lineJoin: .round))
+                .stroke(color, style: StrokeStyle(lineWidth: widthCircle, lineCap: .butt, lineJoin: .round))
                 .frame(width: size, height: size).rotationEffect(.init(degrees: -90))
             Circle()
                 .fill(.gray)
@@ -49,10 +55,13 @@ struct CustomCircleSlider :View {
                 .font(.title)
                 .fontWeight(.medium)
         }.accentColor(needRefresh ? .white : .black)
-        .onAppear {
-            progress = count / koef
-            angle = progress * 360
-        }
+        .onChange(of: count, perform: { value in
+                progress = value / koef
+                angle = progress * 360
+            print(lowLevel)
+            color = (value < lowLevel || value > highLevel) ? Color.red : Color("BaseColor")
+            print(color)
+            })
     }
     
     func onDrag(value: DragGesture.Value) {

@@ -78,3 +78,8 @@
 "en" = "Английский";
 "ru" = "Русский";
 "Error" = "Ошибка";
+"High level sugar" = "Высокий уровень сахара";
+"Low level sugar" = "Низкий уровень сахара";
+"Select the export format" = "Выберите формат экспорта";
+ "Export to PDF" = "Экспорт в PDF";
+"Export to CSV" = "Экспорт в CSV";

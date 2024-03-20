@@ -16,6 +16,8 @@ struct FormNavigationBar: View {
     
     @StateObject var viewModel = FormNavigationBarViewModel.shared
     @State var needRefresh = false
+    private var lowLevelSugar: Double = Double(UserDefaults.standard.integer(forKey: "lowLevelSugar") == 0 ? 3 : UserDefaults.standard.integer(forKey: "lowLevelSugar"))
+    private var highLevelSugar: Double = Double(UserDefaults.standard.integer(forKey: "highLevelSugar") == 0 ? 12 : UserDefaults.standard.integer(forKey: "highLevelSugar"))
     
     init(textButton:String, actionButton: @escaping ()->Void) {
         UISegmentedControl.appearance().selectedSegmentTintColor = UIColor(Color("BaseColor"))
@@ -34,7 +36,7 @@ struct FormNavigationBar: View {
 
             switch viewModel.choosenIndicators {
             case .Blood:
-                CustomCircleSlider(count: $viewModel.diabetNote.Blood, measurement: "mmol/l".localized, koef: 36, needRefresh: $needRefresh).padding().accentColor(needRefresh ? .white : .black)
+                CustomCircleSlider(count: $viewModel.diabetNote.Blood, measurement: "mmol/l".localized, koef: 36, needRefresh: $needRefresh, lowLevel: lowLevelSugar, highLevel: highLevelSugar).padding().accentColor(needRefresh ? .white : .black)
             case .XE:
                 CustomCircleSlider(count: $viewModel.diabetNote.XE, measurement: "bu".localized, koef: 25, needRefresh: $needRefresh).padding()
                 

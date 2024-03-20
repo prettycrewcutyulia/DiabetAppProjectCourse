@@ -171,6 +171,7 @@ class DatabaseService {
             if let data = data {
                 do {
                     let user = try JSONDecoder().decode(UserGeneralInfo.self, from: data)
+                    print(data)
                     completion(.success(user))
                 } catch {
                     print("Error decoding user data: \(error.localizedDescription)")

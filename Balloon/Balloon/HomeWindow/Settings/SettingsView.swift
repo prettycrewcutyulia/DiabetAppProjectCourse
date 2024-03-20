@@ -40,11 +40,20 @@ struct SettingsView: View {
                                     Text("\(value) " + "kg".localized).tag(value)
                                 }
                             }
-                            
-                            Picker(selection: $viewModel.sex, content: {
+                    Picker(selection: $viewModel.sex, content: {
                                 Text("Male".localized).tag("male").font(Font.title)
                                 Text("Female".localized).tag("female")
                             }, label: {Text("")}).pickerStyle(.segmented)
+                    Picker("Low level sugar",selection: $viewModel.lowLevelSugar) {
+                        ForEach(0..<25) { value in
+                            Text("\(value) " + "mmol/l".localized)
+                        }
+                    }
+                    Picker("High level sugar",selection: $viewModel.highLevelSugar) {
+                        ForEach(0..<25) { value in
+                            Text("\(value) " + "mmol/l".localized)
+                        }
+                    }
                         }
                 Section(header: Text("Language".localized)) {
                     Picker("Language".localized, selection: $viewModel.selectedLanguage) {

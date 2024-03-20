@@ -11,10 +11,21 @@ import Charts
 struct Analytic: View {
     @ObservedObject var viewModel = AnalyticViewModel()
     var notes: [DiabetNote] { viewModel.getNote() }
+    @State var result: String?
+    @State var isSave: Bool = false
 
     var body: some View {
         VStack(spacing:10) {
-            Text("Statistics".localized).font(.title2)
+            HStack() {
+                Text("Statistics".localized).font(.title2)
+                Spacer()
+                Button(action: {
+                    viewModel.isExporting = true
+                    }) {
+                        Image(systemName: "square.and.arrow.up")
+                            .foregroundColor(.blue)
+                    }
+            }
             Divider().frame(height: 1).background(Color("BaseColor")).padding(.horizontal)
             ScrollView() {
                 chartForPeriod(period: "Day".localized, data: filterDataForDay())
@@ -28,6 +39,25 @@ struct Analytic: View {
                     .padding()
             }
         }.padding()
+            .sheet(isPresented: $viewModel.isExporting) {
+                Text("Select the export format".localized).font(.title2)
+                Divider().frame(height: 1).background(Color("BaseColor")).padding(.horizontal)
+                Button(action: {
+                    result = viewModel.savePDF()
+                    if (result != nil) {
+                        isSave.toggle()
+                    }
+                }) {
+                    Text("Export to PDF".localized)
+                }.alert(isPresented: $isSave) {
+                    Alert(title: Text("Success".localized), message: Text("Файл сохранен с названием: \(result!)"), dismissButton: .default(Text("OK")))
+                }
+                Button(action: {
+                    // код для экспорта в CSV
+                }) {
+                    Text("Export to CSV".localized)
+                }
+            }
     }
 
     func chartForPeriod(period: String, data: [DiabetNoteModel]) -> some View {

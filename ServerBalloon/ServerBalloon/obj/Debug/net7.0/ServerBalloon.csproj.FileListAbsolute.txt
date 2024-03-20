@@ -163,3 +163,4 @@
 /Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/obj/Debug/net7.0/ServerBalloon.pdb
 /Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/obj/Debug/net7.0/ServerBalloon.genruntimeconfig.cache
 /Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/obj/Debug/net7.0/ref/ServerBalloon.dll
+/Users/prettycrewcut/Documents/GitHub/DiabetAppProjectCourse/ServerBalloon/ServerBalloon/obj/Debug/net7.0/ServerBalloon.sourcelink.json

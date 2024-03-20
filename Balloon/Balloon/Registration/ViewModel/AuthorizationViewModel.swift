@@ -23,13 +23,21 @@ class AuthorizationViewModel: ObservableObject {
                     if let error = error {
                         self?.showInvalidError = true
                         print("Ошибка входа: \(error.localizedDescription)")
+                        return
                     } else {
                         self?.showInvalidError = false
                         UserDefaults.standard.set("yes", forKey: "login")
-                        self?.isContinue = true
+                        //self?.isContinue = true
                     }
                 }
-        dbService.getUser(userID: UserDefaults.standard.string(forKey: "idUser")!, completion: {
+        guard let idUser = UserDefaults.standard.string(forKey: "idUser") else {
+            self.showInvalidError = true
+            //self.isContinue = false
+            UserDefaults.standard.set("no", forKey: "login")
+            //print("Ошибка входа: \(error.localizedDescription)")
+            return
+        }
+        dbService.getUser(userID: idUser, completion: {
             result in
             switch result {
             case .success(let user):
@@ -41,13 +49,15 @@ class AuthorizationViewModel: ObservableObject {
                 UserDefaults.standard.set(user.typeDiabet, forKey: "TypeDiabet")
                 UserDefaults.standard.set(user.birthDate, forKey: "BirthDate")
                 UserDefaults.standard.set(user.name, forKey: "Name")
-                
+                self.isContinue = true
+                UserDefaults.standard.set("yes", forKey: "login")
                 
             case .failure(let error):
                 // Получена ошибка при запросе данных о пользователе
                 print("Failed to fetch user info. Error: \(error)")
                 self.invalidGetUser = true
                 self.errorMessage = "Something went wrong. Check the entered data and your Internet connection.".localized
+                UserDefaults.standard.set("no", forKey: "login")
             }
         })
         }
