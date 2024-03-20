@@ -32,7 +32,7 @@ struct FormNavigationBar: View {
             Text(viewModel.choosenIndicators.rawValue.localized).font(.title2)
             Divider().frame(height: 1).background(Color("BaseColor")).padding(.horizontal)
             
-            DatePicker("DateTime", selection: $viewModel.diabetNote.Date).labelsHidden().padding(.bottom) .environment(\.locale, UserDefaults.standard.string(forKey: "selectedLanguage") == "ru" ? Locale(identifier: "ru_RU"): Locale.autoupdatingCurrent) // Установка локали на русскую, если необходимо
+            DatePicker("DateTime", selection: $viewModel.diabetNote.Date).labelsHidden().padding(.bottom) .environment(\.locale, UserDefaults.standard.string(forKey: "selectedLanguage") == "en" ? Locale(identifier: "en_EN"): Locale.autoupdatingCurrent) // Установка локали на русскую, если необходимо
 
             switch viewModel.choosenIndicators {
             case .Blood:

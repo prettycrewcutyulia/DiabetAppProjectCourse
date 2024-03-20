@@ -55,12 +55,13 @@ struct CustomCircleSlider :View {
                 .font(.title)
                 .fontWeight(.medium)
         }.accentColor(needRefresh ? .white : .black)
+            .onAppear {
+                         progress = count / koef
+                         angle = progress * 360
+                     }
         .onChange(of: count, perform: { value in
-                progress = value / koef
-                angle = progress * 360
-            print(lowLevel)
+           
             color = (value < lowLevel || value > highLevel) ? Color.red : Color("BaseColor")
-            print(color)
             })
     }
     

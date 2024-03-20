@@ -3,6 +3,7 @@ using Firebase.Auth.Providers;
 using FirebaseAdmin;
 using FirebaseAdmin.Auth;
 using Microsoft.AspNetCore.Mvc;
+using ServerBalloon.Models;
 
 namespace ServerBalloon;
 [Route("api/auth")]
@@ -29,7 +30,6 @@ public class AuthController : ControllerBase
     {
         try
         {
-
             var userRecord = await _provider.CreateUserWithEmailAndPasswordAsync(args.Email, args.Password);
             Console.WriteLine("успешно");
             return Ok(userRecord.User.Uid);
@@ -70,15 +70,4 @@ public class AuthController : ControllerBase
             return BadRequest($"Password reset failed: {ex.Message}");
         }
     }
-}
-
-public class ResetPassword
-{
-    public string Email { get; set; }
-}
-
-public class Login
-{
-    public string Email { get; set; }
-    public string Password { get; set; }
 }

@@ -19,7 +19,7 @@ class SettingsViewModel : ObservableObject {
     private let date: Date
     @Published var birthDate: Date
     @Published var name: String =  UserDefaults.standard.string(forKey: "Name") ?? "Юлия"
-    @Published var selectedLanguage: String = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "ru"
+    @Published var selectedLanguage: String = UserDefaults.standard.string(forKey: "selectedLanguage")!
     @Published var showInvalidError: Bool  = false
     @Published var errorMessage:String = ""
     let diabetesTypes = ["Type 1", "Type 2", "LADA", "Prediabetes", "Gestational", "Another"]
@@ -47,6 +47,7 @@ class SettingsViewModel : ObservableObject {
         
         DispatchQueue.main.async {
             UserDefaults.standard.set(self.selectedLanguage, forKey: "selectedLanguage")
+            print(self.selectedLanguage)
             self.selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage")!
         }
         

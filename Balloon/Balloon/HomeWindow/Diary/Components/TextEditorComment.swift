@@ -22,14 +22,14 @@ struct TextEditorComment:View {
             TextEditor(text: $comment)
                 .focused($focusedField, equals: .textEditor)
             if (focusedField == .textEditor) {
-                Button("Submit") {
+                Button("Submit".localized) {
                     endTextEditing()
                 }.padding(.bottom, 8)
             }
         } .toolbar {
             ToolbarItemGroup(placement: .keyboard) {
                Spacer()
-               Button("Done") {
+                Button("Done".localized) {
                      UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
                      focusedField = nil
                }

@@ -19,7 +19,7 @@ struct SettingsView: View {
             Form {
                 Section(header: Text("Personal Information".localized)) {
                     TextField("Name".localized, text: $viewModel.name)
-                    DatePicker("Birth Date".localized, selection: $viewModel.birthDate, displayedComponents: .date) .environment(\.locale, UserDefaults.standard.string(forKey: "selectedLanguage") == "ru" ? Locale(identifier: "ru_RU"): Locale.autoupdatingCurrent) // Установка локали на русскую, если необходимо
+                    DatePicker("Birth Date".localized, selection: $viewModel.birthDate, displayedComponents: .date).environment(\.locale, UserDefaults.standard.string(forKey: "selectedLanguage") == "en" ? Locale(identifier: "en_EN"): Locale.autoupdatingCurrent) // Установка локали на русскую, если необходимо
                         }
 
                 Section(header: Text("Health Information".localized)) {
@@ -44,12 +44,12 @@ struct SettingsView: View {
                                 Text("Male".localized).tag("male").font(Font.title)
                                 Text("Female".localized).tag("female")
                             }, label: {Text("")}).pickerStyle(.segmented)
-                    Picker("Low level sugar",selection: $viewModel.lowLevelSugar) {
+                    Picker("Low level sugar".localized,selection: $viewModel.lowLevelSugar) {
                         ForEach(0..<25) { value in
                             Text("\(value) " + "mmol/l".localized)
                         }
                     }
-                    Picker("High level sugar",selection: $viewModel.highLevelSugar) {
+                    Picker("High level sugar".localized,selection: $viewModel.highLevelSugar) {
                         ForEach(0..<25) { value in
                             Text("\(value) " + "mmol/l".localized)
                         }

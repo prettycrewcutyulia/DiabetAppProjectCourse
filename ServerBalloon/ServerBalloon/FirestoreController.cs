@@ -5,7 +5,7 @@ namespace ServerBalloon;
 
 [Route("api/db")]
 [ApiController]
-public class FirestoreController:ControllerBase
+public class FirestoreController: ControllerBase
 {
     private FirestoreDb _firestoreDb;
     public FirestoreController()
