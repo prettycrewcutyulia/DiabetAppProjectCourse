@@ -79,3 +79,7 @@
 "en" = "English";
 "ru" = "Russian";
 "Error" = "Error";
+"Показания от" = "Indications from";
+"Данные пациента" = "Patient data";
+"Показания за период" = "Indications for the period";
+"Файл сохранен с названием:" = "The file is saved with the name:";

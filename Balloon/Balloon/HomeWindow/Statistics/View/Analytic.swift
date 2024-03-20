@@ -50,12 +50,17 @@ struct Analytic: View {
                 }) {
                     Text("Export to PDF".localized)
                 }.alert(isPresented: $isSave) {
-                    Alert(title: Text("Success".localized), message: Text("Файл сохранен с названием: \(result!)"), dismissButton: .default(Text("OK")))
+                    Alert(title: Text("Success".localized), message: Text("Файл сохранен с названием:".localized+" \(result!)"), dismissButton: .default(Text("OK")))
                 }
                 Button(action: {
-                    // код для экспорта в CSV
+                    result = viewModel.writeArrayToCSV()
+                    if (result != nil) {
+                        isSave.toggle()
+                    }
                 }) {
                     Text("Export to CSV".localized)
+                }.alert(isPresented: $isSave) {
+                    Alert(title: Text("Success".localized), message: Text("Файл сохранен с названием:".localized+" \(result!)"), dismissButton: .default(Text("OK")))
                 }
             }
     }

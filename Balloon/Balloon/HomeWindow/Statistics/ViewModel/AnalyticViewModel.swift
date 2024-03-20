@@ -50,34 +50,15 @@ class AnalyticViewModel:ObservableObject {
             context.beginPage()
 
             alignText(value: value, x: 0, y: 30, width: 580, height: 40, alignment: .center, textFont: UIFont.systemFont(ofSize: 30, weight: .bold))
-            alignText(value: "Данные пациента", x: 30, y: 70, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 20, weight: .bold))
-            alignText(value: "1) Имя: \(name)", x: 30, y: 100, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
-            alignText(value: "2) Дата рождения: \(birthDateFormat)", x: 30, y: 120, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
-            alignText(value: "3) Пол: \(sex.localized)", x: 30, y: 140, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
-            alignText(value: "4) Рост: \(height)", x: 30, y: 160, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
-            alignText(value: "5) Вес: \(weight)", x: 30, y: 180, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
-            alignText(value: "6) Тип диабета: \(typeDiabet.localized)", x: 30, y: 200, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "Данные пациента".localized, x: 30, y: 70, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 20, weight: .bold))
+            alignText(value: "1) "+"Name".localized+": \(name)", x: 30, y: 100, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "2) "+"Birth Date".localized+": \(birthDateFormat)", x: 30, y: 120, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "3) "+"Sex".localized + ": \(sex.localized)", x: 30, y: 140, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "4) "+"Height".localized+": \(height) " + "cm".localized, x: 30, y: 160, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "5) "+"Weight".localized+": \(weight) " + "kg".localized, x: 30, y: 180, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
+            alignText(value: "6) "+"Type of Diabetes".localized+": \(typeDiabet.localized)", x: 30, y: 200, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 16, weight: .regular))
 
-            alignText(value: "Показания за период", x: 30, y: 230, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 20, weight: .bold))
-            
-            func fillTableData(from notes: [DiabetNoteModel]) -> [[String]] {
-                var data: [[String]] = [["Дата", "Сахар", "XE", "Короткий инсулин", "Длинный инсулин", "Комментарий"]]
-                print(notes)
-                let formatter = DateFormatter()
-                formatter.dateFormat = "dd.MM.yyyy"
-                
-                for note in notes {
-                    let dateStr = formatter.string(from: note.Date)
-                    let bloodStr = String(format: "%.1f", note.Blood)
-                    let xeStr = String(format: "%.1f", note.XE)
-                    let shortInsulinStr = String(format: "%.1f", note.ShortInsulin)
-                    let longInsulinStr = String(format: "%.1f", note.LongInsulin)
-                    let row = [dateStr, bloodStr, xeStr, shortInsulinStr, longInsulinStr, note.Comment]
-                    data.append(row)
-                }
-                
-                return data
-            }
+            alignText(value: "Показания за период".localized, x: 30, y: 230, width: 580, height: 100, alignment: .left, textFont: UIFont.systemFont(ofSize: 20, weight: .bold))
 
             let tableData = fillTableData(from: getNote().toDiabetNoteModels()) // получение двумерного массива
             // Drawing table
@@ -130,7 +111,7 @@ class AnalyticViewModel:ObservableObject {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
         let nowDateString = formatter.string(from: Date())
-        let value = "Показания от \(nowDateString)"
+        let value = "Показания от".localized+" \(nowDateString)"
         let fileName = "\(value).pdf"
         let pdfData = generatePDF()
         var result: String?
@@ -147,4 +128,57 @@ class AnalyticViewModel:ObservableObject {
         }
         return result
     }
+    
+    func fillTableData(from notes: [DiabetNoteModel]) -> [[String]] {
+        var data: [[String]] = [["Дата", "Сахар", "XE", "Короткий инсулин", "Длинный инсулин", "Комментарий"]]
+        print(notes)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        
+        for note in notes {
+            let dateStr = formatter.string(from: note.Date)
+            let bloodStr = String(format: "%.1f", note.Blood)
+            let xeStr = String(format: "%.1f", note.XE)
+            let shortInsulinStr = String(format: "%.1f", note.ShortInsulin)
+            let longInsulinStr = String(format: "%.1f", note.LongInsulin)
+            let row = [dateStr, bloodStr, xeStr, shortInsulinStr, longInsulinStr, note.Comment]
+            data.append(row)
+        }
+        
+        return data
+    }
+    
+    @MainActor func writeArrayToCSV() -> String? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let nowDateString = formatter.string(from: Date())
+        let value = "Показания от".localized+" \(nowDateString)"
+        let birthDateFormat = formatter.string(from: birthDate)
+        var dataPatient = [[value], ["Данные пациента".localized], ["1) "+"Name".localized+": \(name)"], ["2) "+"Birth Date".localized+": \(birthDateFormat)"],
+                           ["3) "+"Sex".localized + ": \(sex.localized)"], ["4) "+"Height".localized+": \(height) " + "cm".localized], ["5) "+"Weight".localized+": \(weight) " + "kg".localized], ["6) "+"Type of Diabetes".localized+": \(typeDiabet.localized)"], ["Показания за период".localized]]
+        let array: [[String]] = dataPatient + fillTableData(from: getNote().toDiabetNoteModels())
+        let fileManager = FileManager.default
+       
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let fileURL = documentsURL.appendingPathComponent("\(value).csv")
+       
+        var csvString = ""
+        var result: String?
+       
+        for row in array {
+            let rowString = row.joined(separator: ",")
+            csvString += rowString + "\n"
+        }
+       
+        // Пишем данные в CSV файл
+        do {
+            try csvString.write(to: fileURL, atomically: true, encoding: .utf8)
+            print("Array has been written to CSV file")
+            result = value
+        } catch {
+            print("Error writing to CSV: \(error)")
+        }
+        return result
+    }
+
 }
